@@ -1,0 +1,41 @@
+<!--
+ load urlprefix 
+-->
+
+<!--
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+-->
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+    <head>
+        <title>{% block title %} {% endblock %}</title>
+		
+        <!--
+		<script type="text/javascript" src=" get_fs_url globalatlanta/js/prototype.js"></script>
+		-->
+		
+        {% block javascript %}{% endblock %}
+      
+	  	<style type="text/css">
+			div#left_col {
+				float:left;
+				width:800px;
+			}
+		</style>	
+	  
+        {% block style %}
+			
+		{% endblock %}
+		
+    </head>
+	
+	<body>
+	    <div id="container" align="center">
+		    <div id="left_col1">
+		        {% block left_col %}
+		            
+		        {% endblock %}
+		    </div>
+		</div>
+	</body>
+</html>

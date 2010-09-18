@@ -1,0 +1,81 @@
+<!--
+ load urlprefix 
+-->
+
+{% extends "base.html" %}
+
+{% block title %} 
+	Tic-Tac-Toe Challenge
+{% endblock %}
+
+{% block javascript %}
+	<script type="text/javascript">
+		function block1()
+	    {
+			document.getElementById('id_block1').value = "X";
+			document.getElementById('id_block3').value = "O";
+			block_1_value = document.getElementById('id_block1').value;
+			block_3_value = document.getElementById('id_block3').value;
+			
+			document.tic_tac_toe.action ="/";
+			document.tic_tac_toe.method ="POST";
+			
+	    }
+		
+	</script>
+{% endblock %}
+
+{% block style %}
+	<style type="text/css">
+		
+	</style>
+{% endblock %}
+
+{% block left_col %} 
+	<form id="tic_tac_toe" name="tic_tac_toe" style="width:550px;">
+		<div style="float:left; width:305px; border:1px solid black;">
+			<div style="float:left; width:305px; border-bottom:1px solid black;">
+				<div style="float:left; width:100px; height:100px; border-right:1px solid black;" onclick="javascript:block1();">
+					<input type="submit" id="id_block1" name="block1" value="" style="background-color:white; width:100px; height:100px;">
+				</div>
+				
+				<div style="float:left; width:100px; height:100px; border-right:1px solid black;">
+					
+				</div>
+				
+				<div style="float:left; width:100px; height:100px;">
+					<input type="submit" id="id_block3" name="block3" value="" style="background-color:white; width:100px; height:100px;">
+				</div>
+			</div>	
+			
+			<div style="float:left; width:305px; border-bottom:1px solid black;">
+				<div style="float:left; width:100px; height:100px; border-right:1px solid black;">
+					
+				</div>
+				
+				<div style="float:left; width:100px; height:100px; border-right:1px solid black;">
+					
+				</div>
+				
+				<div style="float:left; width:100px; height:100px;">
+					
+				</div>
+			</div>
+			
+			<div style="float:left; width:305px;">
+				<div style="float:left; width:100px; height:100px; border-right:1px solid black;">
+					
+				</div>
+				
+				<div style="float:left; width:100px; height:100px; border-right:1px solid black;">
+					
+				</div>
+				
+				<div style="float:left; width:100px; height:100px;">
+					
+				</div>
+			</div>
+		</div>
+	</form>	
+
+{% endblock %}

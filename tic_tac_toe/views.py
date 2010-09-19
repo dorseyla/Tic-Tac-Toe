@@ -9,9 +9,7 @@ from django.template import RequestContext
 from datetime import date, timedelta
 import datetime
 
-from django.db.models import Q
-
-#from tic_tac_toe.models import *
+from tic_tac_toe.board.models import *
 from tic_tac_toe.settings import *
 from tic_tac_toe.board.forms import *
 
@@ -107,19 +105,71 @@ def game(request):
                 if curr_game.block9 == None:
                     curr_game.block9 = "O"
             
+            if 'block4' in request.POST:
+                curr_game.block4 = request.POST['block4']
+                
+                if curr_game.block5:
+                    curr_game.block6 = "O"
+                
+                if curr_game.block1:
+                    if curr_game.block9:
+                        curr_game.block6 = "O"
+                    else:    
+                        curr_game.block7 = "O"
+            
             if 'block5' in request.POST:
                 curr_game.block5 = request.POST['block5']
                 
-                if curr_game.block8 == None :
+                if curr_game.block9:
                     curr_game.block8 = "O"
-                    
-                if curr_game.block9 == None:
+                elif curr_game.block4:
+                    curr_game.block6 = "O"    
+                
+                if curr_game.block1 == "X":
                     curr_game.block9 = "O"
+                
+                if curr_game.block3 == "X":
+                     curr_game.block7 = "O"
+                    
                 
             if 'block6' in request.POST:
                 curr_game.block6 = request.POST['block6']
                 if curr_game.block7 == None:
                     curr_game.block7 = "O"
+            
+            if 'block7' in request.POST:
+                curr_game.block7 = request.POST['block7']
+                
+                if curr_game.block1 == "X":
+                    curr_game.block4 = "O" 
+                    
+                if curr_game.block3:
+                    curr_game.block5 = "O"    
+            
+            if 'block8' in request.POST:
+                curr_game.block8 = request.POST['block8']
+                
+                if curr_game.block9:
+                    if curr_game.block7:
+                       curr_game.block8 = "O" 
+                    else:    
+                        curr_game.block5 = "O"
+                
+                if curr_game.block7 == "X":
+                    if curr_game.block9 == "X":
+                        curr_game.block8 = "X"
+                        
+            
+            if 'block9' in request.POST:
+                curr_game.block9 = request.POST['block9']
+                
+                if curr_game.block3:
+                    if curr_game.block7:
+                        curr_game.block8 = "O"
+                
+                if curr_game.block1:
+                    curr_game.block5 = "O"
+                
             
             curr_game.save()
             return HttpResponseRedirect("/game/") 

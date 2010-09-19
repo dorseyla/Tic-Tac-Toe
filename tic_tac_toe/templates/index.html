@@ -95,55 +95,72 @@
 
 {% block style %}
 	<style type="text/css">
+		div#tictactoe{
+			float:left;
+			width:500px;
+			height:625px;
+			
+		}
 		
+		form#tic_tac_toe{
+			float:left; 
+			width:500px;
+			height:625px;
+			background-image:url(http://media2.lebrawebconsulting.com/tic_tac_toe/Beach_ttt.png);
+		}
 	</style>
 {% endblock %}
 
 {% block left_col %} 
-	<form id="tic_tac_toe" name="tic_tac_toe" style="width:550px;">
-		<div style="float:left; width:303px; border:1px solid black;">
-			<div style="float:left; width:303px; border-bottom:1px solid black;">
-				<div style="float:left; width:100px; height:100px; border-right:1px solid black;" onclick="javascript:block1();">
-					<input type="submit" id="id_block1" name="block1" value="" style="background-color:white; width:100px; height:100px;">
+<div id="tictactoe">
+	<form id="tic_tac_toe" name="tic_tac_toe">
+		<div style="float:left; width:500px; height:250px;">
+			
+		</div>	
+		
+		<div style="float:left; width:340px; margin:0px 0px 0px 80px;">
+			<div style="float:left; width:320px;">
+				<div style="float:left; width:105px; height:105px;" onclick="javascript:block1();">
+					<input type="submit" id="id_block1" name="block1" value="" style="border:0; background:transparent; width:100px; height:100px;">
 				</div>
 				
-				<div style="float:left; width:100px; height:100px; border-right:1px solid black;" onclick="javascript:block2();">
-					<input type="submit" id="id_block2" name="block2" value="" style="background-color:white; width:100px; height:100px;">
+				<div style="float:left; width:105px; height:105px;" onclick="javascript:block2();">
+					<input type="submit" id="id_block2" name="block2" value="" style="border:0;background:transparent; width:100px; height:100px;">
 				</div>
 				
-				<div style="float:left; width:100px; height:100px;" onclick="javascript:block3();">
-					<input type="submit" id="id_block3" name="block3" value="" style="background-color:white; width:100px; height:100px;">
+				<div style="float:left; width:105px; height:105px;" onclick="javascript:block3();">
+					<input type="submit" id="id_block3" name="block3" value="" style="border:0;background:transparent; width:100px; height:100px;">
 				</div>
 			</div>	
 			
-			<div style="float:left; width:303px; border-bottom:1px solid black;">
-				<div style="float:left; width:100px; height:100px; border-right:1px solid black;"  onclick="javascript:block4();">
-					<input type="submit" id="id_block4" name="block4" value="" style="background-color:white; width:100px; height:100px;">
+			<div style="float:left; width:320px;">
+				<div style="float:left; width:105px; height:105px;"  onclick="javascript:block4();">
+					<input type="submit" id="id_block4" name="block4" value="" style="border:0;background:transparent; width:100px; height:100px;">
 				</div>
 				
-				<div style="float:left; width:100px; height:100px; border-right:1px solid black;" onclick="javascript:block5();">
-					<input type="submit" id="id_block5" name="block5" value="" style="background-color:white; width:100px; height:100px;">
+				<div style="float:left; width:105px; height:105px;" onclick="javascript:block5();">
+					<input type="submit" id="id_block5" name="block5" value="" style="border:0;background:transparent; width:100px; height:100px;">
 				</div>
 				
-				<div style="float:left; width:100px; height:100px;" onclick="javascript:block6();">
-					<input type="submit" id="id_block6" name="block6" value="" style="background-color:white; width:100px; height:100px;">
+				<div style="float:left; width:105px; height:105px;" onclick="javascript:block6();">
+					<input type="submit" id="id_block6" name="block6" value="" style="border:0;background:transparent; width:100px; height:100px;">
 				</div>
 			</div>
 			
-			<div style="float:left; width:303px;">
-				<div style="float:left; width:100px; height:100px; border-right:1px solid black;" onclick="javascript:block7();">
-					<input type="submit" id="id_block7" name="block7" value="" style="background-color:white; width:100px; height:100px;">
+			<div style="float:left; width:320px;">
+				<div style="float:left; width:105px; height:105px;" onclick="javascript:block7();">
+					<input type="submit" id="id_block7" name="block7" value="" style="border:0;background:transparent; width:100px; height:100px;">
 				</div>
 				
-				<div style="float:left; width:100px; height:100px; border-right:1px solid black;" onclick="javascript:block8();">
-					<input type="submit" id="id_block8" name="block8" value="" style="background-color:white; width:100px; height:100px;">
+				<div style="float:left; width:105px; height:105px;" onclick="javascript:block8();">
+					<input type="submit" id="id_block8" name="block8" value="" style="border:0;background:transparent; width:100px; height:100px;">
 				</div>
 				
-				<div style="float:left; width:100px; height:100px;" onclick="javascript:block9();">
-					<input type="submit" id="id_block9" name="block9" value="" style="background-color:white; width:100px; height:100px;">
+				<div style="float:left; width:105px; height:105px;" onclick="javascript:block9();">
+					<input type="submit" id="id_block9" name="block9" value="" style="border:0;background:transparent; width:100px; height:100px;">
 				</div>
 			</div>
 		</div>
 	</form>	
-
+</div>
 {% endblock %}

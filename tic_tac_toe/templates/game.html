@@ -14,35 +14,67 @@
 	    {
 			document.getElementById('id_block2').value = "X";
 			
-			if(document.getElementById('id_block9').value = "none")
-			{
-				document.getElementById('id_block9').value = "O";
-			}
-			
 			document.tic_tac_toe.action ="/game/";
 			document.tic_tac_toe.method ="POST";
+	    }
+		
+		function block4()
+	    {
+			document.getElementById('id_block4').value = "X";
+			
+			{% if curr_game.block5 %}
+				document.getElementById('id_block6').value = "O";
+					
+				document.tic_tac_toe.action ="/game/";
+				document.tic_tac_toe.method ="POST";
+			{% endif %}
+			
+			{% if curr_game.block1 %}
+				{% if curr_game.block9 %}
+					document.getElementById('id_block6').value = "O";
+					
+					document.tic_tac_toe.action ="/game/";
+					document.tic_tac_toe.method ="POST";
+				{% else %}
+					document.getElementById('id_block7').value = "O";
+					
+					document.tic_tac_toe.action ="/game/";
+					document.tic_tac_toe.method ="POST";
+				{% endif %}	
+			{% endif %}
+			
+			
 	    }
 		
 		function block5()
 	    {
 			document.getElementById('id_block5').value = "X";
 			
-			if(document.getElementById('id_block8').value = "none")
-			{
-				alert('8 none');
+			{% if curr_game.block9 %}
 				document.getElementById('id_block8').value = "O";
-			}
+				
+				document.tic_tac_toe.action ="/game/";
+				document.tic_tac_toe.method ="POST";
+			{% else %}{% if curr_game.block4 %}	
+				document.getElementById('id_block6').value = "O";
+				
+				document.tic_tac_toe.action ="/game/";
+				document.tic_tac_toe.method ="POST";
+			{% endif %}{% endif %}
 			
-			if(document.getElementById('id_block9').value = "none")
-			{
-				alert('9 none');
+			{% ifequal curr_game.block1 'X' %}
 				document.getElementById('id_block9').value = "O";
-			}
 			
+				document.tic_tac_toe.action ="/game/";
+				document.tic_tac_toe.method ="POST";
+			{% endifequal %}
 			
+			{% ifequal curr_game.block3 'X' %}
+				document.getElementById('id_block7').value = "O";
 			
-			document.tic_tac_toe.action ="/game/";
-			document.tic_tac_toe.method ="POST";
+				document.tic_tac_toe.action ="/game/";
+				document.tic_tac_toe.method ="POST";
+			{% endifequal %}
 	    }
 		
 		function block6()
@@ -58,117 +90,219 @@
 			document.tic_tac_toe.method ="POST";
 	    }
 		
+		function block7()
+	    {
+			document.getElementById('id_block7').value = "X";
+			
+			{% ifequal curr_game.block1 'X' %}
+				document.getElementById('id_block4').value = "O";
+			
+				document.tic_tac_toe.action ="/game/";
+				document.tic_tac_toe.method ="POST";
+			{% endifequal %}
+			
+			{% if curr_game.block3 %}
+				document.getElementById('id_block5').value = "O";
+					
+				document.tic_tac_toe.action ="/game/";
+				document.tic_tac_toe.method ="POST";
+			{% endif %}
+	    }
+		
+		function block8()
+	    {
+			document.getElementById('id_block8').value = "X";
+			
+			{% if curr_game.block9 %}
+				{% if curr_game.block7 %}
+					document.getElementById('id_block8').value = "O";
+				
+					document.tic_tac_toe.action ="/game/";
+					document.tic_tac_toe.method ="POST";
+				{% else %}
+					document.getElementById('id_block5').value = "O";
+					
+					document.tic_tac_toe.action ="/game/";
+					document.tic_tac_toe.method ="POST";
+				{% endif %}	
+			{% endif %}
+			
+			{% ifequal curr_game.block7 'X' %}
+				{% ifequal curr_game.block9 'X' %}
+					document.getElementById('id_block8').value = "X";
+					
+					document.tic_tac_toe.action ="/game/";
+					document.tic_tac_toe.method ="POST";
+				{% endifequal %}
+			{% endifequal %}
+	    }
+		
+		function block9()
+	    {
+			document.getElementById('id_block9').value = "X";
+			
+			{% if curr_game.block3 %}
+				{% if curr_game.block7 %}
+					document.getElementById('id_block8').value = "O";
+					
+					document.tic_tac_toe.action ="/game/";
+					document.tic_tac_toe.method ="POST";
+				{% endif %}
+			{% endif %}
+			
+			{% if curr_game.block1 %}
+				document.getElementById('id_block5').value = "O";
+					
+				document.tic_tac_toe.action ="/game/";
+				document.tic_tac_toe.method ="POST";
+			{% endif %}
+	    }
+		
 	</script>
 {% endblock %}
 
 {% block style %}
 	<style type="text/css">
+		div#tictactoe{
+			float:left;
+			width:500px;
+			height:625px;
+			
+		}
 		
+		form#tic_tac_toe{
+			float:left; 
+			width:500px;
+			height:625px;
+			background-image:url(http://media2.lebrawebconsulting.com/tic_tac_toe/Beach_ttt.png);
+		}
 	</style>
 {% endblock %}
 
 {% block left_col %} 
-	{{curr_game.id}}
-	<form id="tic_tac_toe" name="tic_tac_toe" style="width:550px;">
+<div id="tictactoe">
+	<form id="tic_tac_toe" name="tic_tac_toe">
+		<div style="float:left; width:500px; height:250px;">
+			
+		</div>
+		
 		{% if curr_game %}
-			<div style="float:left; width:305px; border:1px solid black;">
-				<div style="float:left; width:305px; border-bottom:1px solid black;">
+			<div style="float:left; width:340px; margin:0px 0px 0px 80px;">
+				<div style="float:left; width:320px;">
 					{% if curr_game.block1 %}
-						<div style="float:left; width:100px; height:100px; border-right:1px solid black;">
-							{{curr_game.block1}}
+						<div style="float:left; width:105px; height:105px;">
+							<span style="float:left; width:100px; margin:20px 0px 0px 0px; font:normal 40pt arial;">
+								<center>{{curr_game.block1}}</center>
+							</span>
 						</div>
 					{% else %}
-						<div style="float:left; width:100px; height:100px; border-right:1px solid black;" onclick="javascript:block1();">
-							<input type="submit" id="id_block1" name="block1" value="" style="background-color:white; width:100px; height:100px;">
+						<div style="float:left; width:105px; height:105px;" onclick="javascript:block1();">
+							<input type="submit" id="id_block1" name="block1" value="" style="border:0; background:transparent; width:100px; height:100px;">
 						</div>	
 					{% endif %}
 					
 					{% if curr_game.block2 %}
-						<div style="float:left; width:100px; height:100px; border-right:1px solid black;">
-							{{curr_game.block2}}
+						<div style="float:left; width:105px; height:105px;">
+							<span style="float:left; width:100px; margin:20px 0px 0px 0px; font:normal 40pt arial;">
+								<center>{{curr_game.block2}}</center>
+							</span>
 						</div>
 					{% else %}	
-						<div style="float:left; width:100px; height:100px; border-right:1px solid black;" onclick="javascript:block2();">
-							<input type="submit" id="id_block2" name="block2" value="" style="background-color:white; width:100px; height:100px;">
+						<div style="float:left; width:105px; height:105px;" onclick="javascript:block2();">
+							<input type="submit" id="id_block2" name="block2" value="" style="border:0; background:transparent; width:100px; height:100px;">
 						</div>	
 					{% endif %}
 					
 					{% if curr_game.block3 %}
-						<div style="float:left; width:100px; height:100px;">
-							{{curr_game.block3}}
+						<div style="float:left; width:105px; height:105px;">
+							<span style="float:left; width:100px; margin:20px 0px 0px 0px; font:normal 40pt arial;">
+								<center>{{curr_game.block3}}</center>
+							</span>
 						</div>
 					{% else %}
-						<div style="float:left; width:100px; height:100px;" onclick="javascript:block3();">
-							<input type="submit" id="id_block3" name="block3" value="" style="background-color:white; width:100px; height:100px;">
+						<div style="float:left; width:105px; height:105px;" onclick="javascript:block3();">
+							<input type="submit" id="id_block3" name="block3" value="" style="border:0; background:transparent; width:100px; height:100px;">
 						</div>	
 					{% endif %}	
 				</div>	
 				
-				<div style="float:left; width:305px; border-bottom:1px solid black;">
+				<div style="float:left; width:320px;">
 					{% if curr_game.block4 %}
-						<div style="float:left; width:100px; height:100px;">
-							{{curr_game.block4}}
+						<div style="float:left; width:105px; height:105px;">
+							<span style="float:left; width:100px; margin:20px 0px 0px 0px; font:normal 40pt arial;">
+								<center>{{curr_game.block4}}</center>
+							</span>
 						</div>
 					{% else %}
-						<div style="float:left; width:100px; height:100px;" onclick="javascript:block4();">
-							<input type="submit" id="id_block4" name="block4" value="" style="background-color:white; width:100px; height:100px;">
+						<div style="float:left; width:105px; height:105px;" onclick="javascript:block4();">
+							<input type="submit" id="id_block4" name="block4" value="" style="border:0; background:transparent; width:100px; height:100px;">
 						</div>	
 					{% endif %}
 					
 					{% if curr_game.block5 %}
-						<div style="float:left; width:100px; height:100px;">
-							{{curr_game.block5}}
+						<div style="float:left; width:105px; height:105px;">
+							<span style="float:left; width:100px; margin:20px 0px 0px 0px; font:normal 40pt arial;">
+								<center>{{curr_game.block5}}</center>
+							</span>
 						</div>
 					{% else %}
-						<div style="float:left; width:100px; height:100px;" onclick="javascript:block5();">
-							<input type="submit" id="id_block5" name="block5" value="" style="background-color:white; width:100px; height:100px;">
+						<div style="float:left; width:105px; height:105px;" onclick="javascript:block5();">
+							<input type="submit" id="id_block5" name="block5" value="" style="border:0; background:transparent; width:100px; height:100px;">
 						</div>	
 					{% endif %}
 					
 					{% if curr_game.block6 %}
-						<div style="float:left; width:100px; height:100px;">
-							{{curr_game.block6}}
+						<div style="float:left; width:105px; height:105px;">
+							<span style="float:left; width:100px; margin:20px 0px 0px 0px; font:normal 40pt arial;">
+								<center>{{curr_game.block6}}</center>
+							</span>
 						</div>
 					{% else %}
-						<div style="float:left; width:100px; height:100px;" onclick="javascript:block6();">
-							<input type="submit" id="id_block6" name="block6" value="" style="background-color:white; width:100px; height:100px;">
+						<div style="float:left; width:105px; height:105px;" onclick="javascript:block6();">
+							<input type="submit" id="id_block6" name="block6" value="" style="border:0; background:transparent; width:100px; height:100px;">
 						</div>	
 					{% endif %}
 				</div>
 				
-				<div style="float:left; width:305px;">
+				<div style="float:left; width:320px;">
 					{% if curr_game.block7 %}
-						<div style="float:left; width:100px; height:100px;">
-							{{curr_game.block7}}
+						<div style="float:left; width:105px; height:105px;">
+							<span style="float:left; width:100px; margin:20px 0px 0px 0px; font:normal 40pt arial;">
+								<center>{{curr_game.block7}}</center>
+							</span>
 						</div>
 					{% else %}
-						<div style="float:left; width:100px; height:100px;" onclick="javascript:block7();">
-							<input type="submit" id="id_block7" name="block7" value="" style="background-color:white; width:100px; height:100px;">
+						<div style="float:left; width:105px; height:105px;" onclick="javascript:block7();">
+							<input type="submit" id="id_block7" name="block7" value="" style="border:0; background:transparent; width:100px; height:100px;">
 						</div>	
 					{% endif %}
 					
 					{% if curr_game.block8 %}
-						<div style="float:left; width:100px; height:100px;">
-							{{curr_game.block8}}
+						<div style="float:left; width:105px; height:105px;">
+							<span style="float:left; width:100px; margin:20px 0px 0px 0px; font:normal 40pt arial;">
+								<center>{{curr_game.block8}}</center>
+							</span>
 						</div>
 					{% else %}
-						<div style="float:left; width:100px; height:100px;" onclick="javascript:block8();">
-							<input type="submit" id="id_block8" name="block8" value="" style="background-color:white; width:100px; height:100px;">
+						<div style="float:left; width:105px; height:105px;" onclick="javascript:block8();">
+							<input type="submit" id="id_block8" name="block8" value="" style="border:0; background:transparent; width:100px; height:100px;">
 						</div>	
 					{% endif %}
 					
 					{% if curr_game.block9 %}
-						<div style="float:left; width:100px; height:100px;">
-							{{curr_game.block9}}
+						<div style="float:left; width:105px; height:105px;">
+							<span style="float:left; width:100px; margin:20px 0px 0px 0px; font:normal 40pt arial;">
+								<center>{{curr_game.block9}}</center>
+							</span>
 						</div>
 					{% else %}
-						<div style="float:left; width:100px; height:100px;" onclick="javascript:block9();">
-							<input type="submit" id="id_block9" name="block9" value="" style="background-color:white; width:100px; height:100px;">
+						<div style="float:left; width:105px; height:105px;" onclick="javascript:block9();">
+							<input type="submit" id="id_block9" name="block9" value="" style="border:0; background:transparent; width:100px; height:100px;">
 						</div>	
 					{% endif %}
 				</div>
 			</div>
 		{% endif %}	
 	</form>	
-
+</div>
 {% endblock %}

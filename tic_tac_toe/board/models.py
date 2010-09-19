@@ -18,14 +18,14 @@ class Game(models.Model):
     
     def populate_game(self, g):
         self.block1  = strip_tags(g.clean_data['block1'])
-#        self.block2  = strip_tags(g.clean_data['block2'])
+        self.block2  = strip_tags(g.clean_data['block2'])
         self.block3  = strip_tags(g.clean_data['block3'])
-#        self.block4  = strip_tags(g.clean_data['block4'])
-#        self.block5  = strip_tags(g.clean_data['block5'])
-#        self.block6  = strip_tags(g.clean_data['block6'])
-#        self.block7  = strip_tags(g.clean_data['block7'])
-#        self.block8  = strip_tags(g.clean_data['block8'])
-#        self.block9  = strip_tags(g.clean_data['block9'])
+        self.block4  = strip_tags(g.clean_data['block4'])
+        self.block5  = strip_tags(g.clean_data['block5'])
+        self.block6  = strip_tags(g.clean_data['block6'])
+        self.block7  = strip_tags(g.clean_data['block7'])
+        self.block8  = strip_tags(g.clean_data['block8'])
+        self.block9  = strip_tags(g.clean_data['block9'])
     
     def get_absolute_url(self):
         return "/" + str(self.id)

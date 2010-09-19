@@ -36,9 +36,6 @@ MEDIA_ROOT = '/data/media/'
 
 MEDIA_URL = '/'
 
-#EDITOR_EMAIL = ''
-
-
 ADMIN_ID=1
 
 # URL prefix for admin media -- CSS, JavaScript and images. Make sure to use a
@@ -60,7 +57,6 @@ TEMPLATE_LOADERS = (
 MIDDLEWARE_CLASSES = (
     'django.middleware.common.CommonMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
-#    'globalatlanta.middleware.mobile_redirect.MobileRedirect',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.middleware.doc.XViewMiddleware',
 )
@@ -98,22 +94,4 @@ IMG_QUALITY=75
 IMG_WIDTH=300
 IMG_HEIGHT=225
 
-#WEATHER_PARTNER='statesboro'
-#WEATHER_ZIP='30458'
-
-#EMAIL_HOST='smtp.globalatlanta.com'
-#EMAIL_PORT='25'
-#EMAIL_HOST_USER = 'admin@globalatlanta.com'
-#EMAIL_HOST_PASSWORD = 'globalatlanta'
-#
-#RECAPTCHA_PUB_KEY = "6Lc4jbwSAAAAAFiwvbt6B28dOsB7Ff8cj06tNGJ3 "
-#RECAPTCHA_PRIVATE_KEY = "6Lc4jbwSAAAAAM523d3I4NofQTLFlmcKOMXwzCiP"
-
-
-#EFROM='noreply@gmail.com'
-#EMAIL_USE_TLS = ""
-
-#NUM_ARTICLES_FRONTPAGE=7
-#
-#REQUIRE_EVENT_APPROVAL=True
 
